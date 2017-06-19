@@ -1,0 +1,52 @@
+Intro:
+The program matches a given regex pattern and prints out the matches according different arguments which are passed in cmd.
+Both files "test.txt" and "test2.txt" can be used for testing and exploring the program.
+For help about usage of arguments, type "python2.7 parse_input_by_regex.py -h"
+
+Compatibility: Python >= 2.6
+
+Exception handling:
+If a given file name does not exist on file system, an informative error will be shown, and the program will proceed to next file (if given).
+
+List of arguments:
+  -p              regex pattern. Required
+  -f              files paths. comma delimited. Optional. Default is None
+  -m              machine format. Optional. Default is False
+  -u              prints ^ under the matching text. Optional. Default is False
+  -c              highlight matching text. Optional. Default is False
+  -hu             display matches in human readable format. Optional. Default is False
+
+If argument -f was not passed, then the program will ask the user to type a string on which the pattern will be matched,
+and list of matched strings will be printed out.
+IMPORTANT to note that in this case, you should not pass any additional arguments (except -p) to avoid error messages.
+
+The following arguments can be passed one after another: -hu -c -u -m
+For example: python2.7 parse_input_by_regex.py -p "(\d{4,5})" -f "test.txt" -hu -c -u -m
+In this case file contents matches will be presented in all 4 formats
+
+
+Usage examples:
+
+>>> python2.7 parse_input_by_regex.py -p "(\d{4,5})" -f "test.txt,test2.txt" -u
+62543653aba5437
+^^^^^
+abadshgfaba3725
+           ^^^^
+765432
+^^^^^
+sdfghjklkjhg
+************************************************
+sdfsf
+sada12345
+    ^^^^^
+
+'*' line means that second file is being parsed
+
+
+>>> python2.7 parse_input_by_regex.py -p "(\d{4,5})" -f "test.txt,test2.txt" -hu
+File name: test.txt Found on line 1: 62543
+File name: test.txt Found on line 1: 5437
+File name: test.txt Found on line 2: 3725
+File name: test.txt Found on line 3: 76543
+************************************************
+File name: test2.txt Found on line 2: 12345
