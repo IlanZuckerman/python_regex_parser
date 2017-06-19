@@ -1,6 +1,8 @@
 Intro:
 The program matches a given regex pattern and prints out the matches according different arguments which are passed in cmd.
-Both files "test.txt" and "test2.txt" can be used for testing and exploring the program.
+The program can parse a list of given files OR a given string. Meaning that if user did'nt pass -f argument (file paths),
+he will be prompted to enter a string which will be later used for matching the pattern.
+Both files "test.txt" and "test2.txt" can be used for testing and exploring the program. You can pass them as -f values comma separated.
 For help about usage of arguments, type "python2.7 parse_input_by_regex.py -h"
 
 Compatibility: Python >= 2.6
@@ -20,9 +22,9 @@ If argument -f was not passed, then the program will ask the user to type a stri
 and list of matched strings will be printed out.
 IMPORTANT to note that in this case, you should not pass any additional arguments (except -p) to avoid error messages.
 
-The following arguments can be passed one after another: -hu -c -u -m
+The following arguments can be passed one after another with specified files: -hu -c -u -m
 For example: python2.7 parse_input_by_regex.py -p "(\d{4,5})" -f "test.txt" -hu -c -u -m
-In this case file contents matches will be presented in all 4 formats
+In this case, the file content matches will be presented in all 4 formats (human, color, underline, machine)
 
 
 Usage examples:
