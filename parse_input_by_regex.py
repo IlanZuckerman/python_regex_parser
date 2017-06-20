@@ -9,7 +9,7 @@ def get_args():
     """
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-p', action='store', dest='pattern', required=True, help='regex pattern. Required')
+    parser.add_argument('-p', action='store', dest='pattern', required=True, help='regex pattern. Required. Syntax: "(<pattern>)" for example: -p "(h.)"   -p "(a[bd])"')
     parser.add_argument('-f', action='store', dest='files_paths', required=False, help='files paths, comma delimited. Optional. Default is None')
     parser.add_argument('-m', action='store_true', dest='machine', required=False, help='machine format. Optional. Default is False')
     parser.add_argument('-u', action='store_true', dest='underscore', required=False, help='prints ^ under the matching text. Optional. Default is False')

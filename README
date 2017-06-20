@@ -16,7 +16,7 @@ Exception handling:
       The logic behind this decision is that it does not make sense to print a machine format (for example) if no files where specified.
 
 List of arguments:
-  -p              regex pattern. Required
+  -p              regex pattern. Required. Syntax: "(<pattern>)" for example: -p "(h.)"   -p "(a[bd])"
   -f              files paths. comma delimited. Optional. Default is None
   -m              machine format. Optional. Default is False
   -u              prints ^ under the matching text. Optional. Default is False
