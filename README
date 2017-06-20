@@ -7,6 +7,8 @@ For help about usage of arguments, type "python2.7 parse_input_by_regex.py -h"
 
 Compatibility: Python >= 2.6
 
+Needed modules: colorama
+
 Exception handling:
     - If a given file name does not exist on file system, an informative error will be shown, and the program will proceed to next file (if given).
     - If a user provided any of those args (-m, -u, -c, -h) without -f arg (which specifies files for parse), an error will be printed telling
