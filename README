@@ -8,7 +8,10 @@ For help about usage of arguments, type "python2.7 parse_input_by_regex.py -h"
 Compatibility: Python >= 2.6
 
 Exception handling:
-If a given file name does not exist on file system, an informative error will be shown, and the program will proceed to next file (if given).
+    - If a given file name does not exist on file system, an informative error will be shown, and the program will proceed to next file (if given).
+    - If a user provided any of those args (-m, -u, -c, -h) without -f arg (which specifies files for parse), an error will be printed telling
+      the user that any of those args should come in conjunction with -h.
+      The logic behind this decision is that it does not make sense to print a machine format (for example) if no files where specified.
 
 List of arguments:
   -p              regex pattern. Required
@@ -29,6 +32,20 @@ In this case, the file content matches will be presented in all 4 formats (human
 
 Usage examples:
 
+This example will highlight all the matches in a given file along with a humanly readable format giving you all the needed info.
+>>> python2.7 parse_input_by_regex.py -p "(\d{4,5})" -f "test.txt" -hu -c
+File name: test.txt Found on line 1: 62543
+File name: test.txt Found on line 1: 5437
+File name: test.txt Found on line 2: 3725
+File name: test.txt Found on line 3: 76543
+62543653aba5437
+abadshgfaba3725
+765432
+sdfghjklkjhg
+
+
+This example prints out underscored matches for both given files. '*' line means that second file is being parsed
+
 >>> python2.7 parse_input_by_regex.py -p "(\d{4,5})" -f "test.txt,test2.txt" -u
 62543653aba5437
 ^^^^^
@@ -42,9 +59,7 @@ sdfsf
 sada12345
     ^^^^^
 
-'*' line means that second file is being parsed
-
-
+This example will print out the matches from both file in humanly readable format
 >>> python2.7 parse_input_by_regex.py -p "(\d{4,5})" -f "test.txt,test2.txt" -hu
 File name: test.txt Found on line 1: 62543
 File name: test.txt Found on line 1: 5437

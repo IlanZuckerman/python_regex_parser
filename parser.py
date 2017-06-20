@@ -11,7 +11,7 @@ class Parser(object):
         try:
             return enumerate(open(f))
         except IOError:
-            print 'Error: File %s does not appear to exist.' % f
+            print('Error: File %s does not appear to exist.' % f)
 
     def matcher(self, f=None):
         """
@@ -28,7 +28,7 @@ class Parser(object):
             if enumerate_file:
                 for i, line in enumerate_file:
                     for match in re.finditer(self._flags['pattern'], line):
-                        print 'file_name:%s no_line:%s start_pos:%s matched_text:%s' % (f, i + 1, match.start(), match.groups()[0])
+                        print('file_name:%s no_line:%s start_pos:%s matched_text:%s' % (f, i + 1, match.start(), match.groups()[0]))
 
         def color():
             """
@@ -42,7 +42,7 @@ class Parser(object):
                 for i, line in enumerate_file:
                     find = self._flags['pattern']
                     replace = Fore.RED + r'\1' + Fore.RESET
-                    print re.sub(find, replace, line.rstrip())
+                    print(re.sub(find, replace, line.rstrip()))
 
         def underscore():
             """
@@ -59,10 +59,10 @@ class Parser(object):
                     m = p.search(line.rstrip())
                     if m:
                         start, end = m.span()
-                        print line.rstrip()
+                        print(line.rstrip())
                         print(' ' * start + '^' * (end - start))
                     else:
-                        print line.rstrip()
+                        print(line.rstrip())
 
         def human():
             """
@@ -74,7 +74,7 @@ class Parser(object):
             if enumerate_file:
                 for i, line in enumerate_file:
                     for match in re.finditer(self._flags['pattern'], line):
-                        print 'File name: %s Found on line %s: %s' % (f, i + 1, match.groups()[0])
+                        print('File name: %s Found on line %s: %s' % (f, i + 1, match.groups()[0]))
 
         def str():
             """
@@ -87,7 +87,7 @@ class Parser(object):
             ['12345']
             """
             matches = re.findall(self._flags['pattern'], self._flags['str'], re.DOTALL)
-            print matches
+            print(matches)
 
         # An argument-->method mapping for deciding which method should shoot for particular argument
         argument_to_method_mapping = {
